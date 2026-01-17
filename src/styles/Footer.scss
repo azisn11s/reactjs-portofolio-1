@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+.footer {
+  border-top: 1px solid $accent-gray;
+  padding: 3rem 0; // py-12
+  background-color: white;
+
+  :global(.dark) & {
+    border-top: 1px solid #1f2937; // gray-800
+    background-color: $background-dark;
+  }
+
+  &__container {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      padding: 0 3rem;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.875rem; // sm
+    font-weight: 500;
+    color: #9ca3af; // gray-400
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

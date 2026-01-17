@@ -1,0 +1,44 @@
+// Colors
+$primary: #28728a;
+$background-light: #fafaf9;
+$background-dark: #25292d;
+$accent-gray: #ebebe8;
+$text-light: #101719;
+$text-dark: #f3f4f6;
+
+// Dark mode specific
+$dark-border: #3d444a;
+$dark-text-secondary: #9ca3af; // gray-400
+
+// Fonts
+$font-family: "Outfit", sans-serif;
+
+// Breakpoints
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Mixins
+@mixin theme-light {
+  background-color: $background-light;
+  color: $text-light;
+}
+
+@mixin theme-dark {
+  background-color: $background-dark;
+  color: $text-dark;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin paper-border {
+  border: 1px solid $accent-gray;
+
+  :global(.dark) & {
+    border: 1px solid $dark-border;
+  }
+}

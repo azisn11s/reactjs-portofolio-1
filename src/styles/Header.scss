@@ -1,0 +1,103 @@
+@use 'variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid $accent-gray;
+  background-color: rgba($background-light, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  :global(.dark) & {
+    background-color: rgba($background-dark, 0.8);
+    border-bottom: 1px solid $dark-border;
+  }
+
+  &__container {
+    max-width: $breakpoint-xl; // 7xl approx
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 5rem; // h-20
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: $breakpoint-lg) {
+      padding: 0 3rem;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+
+    &-icon {
+      width: 2rem;
+      height: 2rem;
+      background-color: $primary;
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      
+      svg {
+        font-size: 20px;
+      }
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__cta {
+    background-color: $primary;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
