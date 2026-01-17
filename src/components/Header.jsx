@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { LuTerminal, LuSun, LuMoon } from 'react-icons/lu';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Header.scss';
 
 const Header = () => {
   const [isDark, setIsDark] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Check system preference or default to light as per html class="light"
@@ -14,9 +16,35 @@ const Header = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Scroll to contact section if hash is #contact
+    if (location.hash === '#contact') {
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.body.classList.toggle('dark');
+  };
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to home page with hash
+      navigate('/#contact');
+    }
   };
 
   return (
@@ -34,7 +62,7 @@ const Header = () => {
         <nav className="header__nav">
           <Link to="/">About</Link>
           <Link to="/projects">Projects</Link>
-          <a href="#contact">Contact</a>
+          <a href="#contact" onClick={handleContactClick}>Contact</a>
         </nav>
         
         <div className="header__actions">
