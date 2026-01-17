@@ -108,11 +108,9 @@
   &__image {
     width: 100%;
     aspect-ratio: 16/10;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
+    overflow: hidden;
   }
 
   &__content {
@@ -135,6 +133,15 @@
     :global(.dark) & {
       color: #9ca3af; // gray-400
     }
+  }
+
+  &__card-meta {
+    color: $primary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
   }
 
   &__link {

@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__copyright">
-          © 2024 Alex Portfolio. Designed with precision.
+          © 2026 Azis Portfolio. Designed with precision.
         </div>
         <div className="footer__links">
           <a href="#">LinkedIn</a>

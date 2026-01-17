@@ -14,8 +14,8 @@ const Contact = () => {
           </p>
         </div>
         
-        <a href="mailto:hello@alexdev.io" className="contact__email">
-          hello@alexdev.io
+        <a href="mailto:naivonsiza@gmail.com" className="contact__email">
+          naivonsiza@gmail.com
         </a>
         
         <div className="contact__socials">

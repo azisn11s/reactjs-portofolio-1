@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { LuArrowLeft, LuExternalLink, LuLayers } from 'react-icons/lu';
 import { projects } from '../data/projects';
 import '../styles/Projects.scss';
+import LazyImage from './LazyImage';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -41,10 +42,17 @@ const ProjectDetail = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', maxWidth: '100%' }}>
             {/* Header Section */}
             <div>
-                 <span className="projects__label">Case Study</span>
-                 <h1 className="projects__title" style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }}>{project.title}</h1>
+                 <span className="projects__label">{project.role} @ {project.company}</span>
+                 <h1 className="projects__title" style={{ marginTop: '0.5rem', marginBottom: '0.5rem' }}>{project.title}</h1>
+                 <p className="projects__card-meta" style={{ marginBottom: '2rem' }}>{project.period}</p>
                  
-                 <div className="projects__image" style={{ backgroundImage: `url(${project.img})`, height: '400px', marginBottom: '3rem' }}></div>
+                 <LazyImage
+                   src={project.img}
+                   alt={project.title}
+                   className="projects__image"
+                   aspectRatio="16/9"
+                   borderRadius="0.5rem"
+                 />
             </div>
 
             {/* Content Section usually 2 columns on desktop */}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LuArrowLeft, LuExternalLink } from 'react-icons/lu';
 import { projects } from '../data/projects';
 import '../styles/Projects.scss';
+import LazyImage from './LazyImage';
 
 const ProjectGallery = () => {
   // Scroll to top when component mounts
@@ -34,14 +35,18 @@ const ProjectGallery = () => {
         <div className="projects__grid">
           {projects.map((project) => (
             <div key={project.id} className="projects__card">
-              <div 
-                className="projects__image" 
-                style={{ backgroundImage: `url(${project.img})` }}
-              ></div>
+              <LazyImage
+                src={project.img}
+                alt={project.title}
+                className="projects__image"
+                aspectRatio="16/10"
+                borderRadius="0.5rem"
+              />
               <div className="projects__content">
                 <Link to={`/projects/${project.id}`} style={{ display: 'block' }}>
                    <h3 className="projects__card-title hover-underline">{project.title}</h3>
                 </Link>
+                <p className="projects__card-meta">{project.company} • {project.period}</p>
                 <p className="projects__card-desc">{project.desc}</p>
                 <Link to={`/projects/${project.id}`} className="projects__link">
                   View Details <LuExternalLink />

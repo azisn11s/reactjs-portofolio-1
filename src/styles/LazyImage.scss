@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+.lazy-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &--loaded &__img {
+    opacity: 1;
+  }
+
+  // Shimmer loading animation
+  &__shimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+
+    :global(.dark) & {
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+    }
+  }
+
+  &--loaded &__shimmer {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
