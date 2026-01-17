@@ -75,7 +75,7 @@ const Header = () => {
             {isDark ? <LuSun /> : <LuMoon />}
           </button> */}
           <a 
-            href="https://wa.me/6281234567890" 
+            href="https://wa.me/6285794313256" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="header__cta"
